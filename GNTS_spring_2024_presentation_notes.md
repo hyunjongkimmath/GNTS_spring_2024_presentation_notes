@@ -9,7 +9,7 @@ tags: [_meta/self_written, _meta/notes]
 
 - Written by: [Hyun Jong Kim](https://sites.google.com/wisc.edu/hyunjongkim?pli=1)
 - Created: 2/2/2024
-- Last updated: 2/4/2024
+- Last updated: 2/6/2024
 
 These are notes for my [[_index_GNTS_spring_2024|fall 2022 GNTS presentation notes]] on Tuesday, 2/6/2023.
 
@@ -127,7 +127,7 @@ Reference: Bump et al, Chapter 1, Section 5
 Let $E/K$ be an abelian extension of number fields
 
 > [!Definition]
-> Let $E/K$ be an abelian extension of number fields with Galois group $G$. For $\rho \in \hat{G}$ (i.e. $\rho: G \to \mathbb{C}$) Define the $L$-function
+> Let $E/K$ be an abelian extension of number fields with Galois group $G$. For a character $\rho \in \hat{G}$ (i.e. $\rho: G \to \mathbb{C}$) Define the $L$-function
 > $$L(\rho,s) = \prod_{\mathfrak{p} \text{ prime of } K} (1-\rho(\sigma_\mathfrak{p})(N_\mathfrak{p})^{-s})^{-1}$$
 > where $\rho(\sigma_\mathfrak{p})$ is the image of the Frobenius element by the Galois representation induced by $\rho$ in $\mathbf{C}^{I_\mathfrak{p}}$.
 
@@ -190,6 +190,8 @@ for some integer polynomial $P_1(T)$ of the form $1 + a_1 T + a_2 T^2 + \cdots +
 
 For an elliptic curve $E/\mathbb{F}_q$, we have $Z_E(E, T) = (1-a T + pT^2)$, where $a$ is the "trace of Frobenius" satisfying $a = q + 1 - \# E(\mathbb{F}_q)$.
 
+Also, nice curves $C/\mathbb{F}_q$ correspond to global function fields $K$ (i.e. finite extensions of $\mathbb{F}_q[t]$), so one can define the <b style="border-width:1px;border-style:solid;padding:3px" definition="">zeta function</b> <span style="border-width:1px;border-style:solid;padding:3px" notation="">$\zeta_K(t)$</span> to be $\zeta_C(t)$.
+
 # Hasse-Weil zeta function for nice varieties over number fields (5 mixed with 6ish for elliptic curves)
 
 Reference: Silverman's "Advanced Topics in the Arithmetic of Elliptic curves", Chapter II, Section 10
@@ -218,6 +220,28 @@ So the following type of question is still quite open:
 > $L(E/K,s)$ has a functional equation when $K$ is a general number field (and $E/K$ is not a CM elliptic curve)
 
 Moreover, Artin's holomorphy conjecture, [[#^eede09|which is stated above]], states that $L(E/K,s)$ has a holomorphic continuation to the whole complex plane.
+
+# Artin $L$-functions for Galois characters of abelian extensions of global function fields (4 mixed with 6)
+
+Reference: Rosen's book *Number Theory in Function Fields*, Chapter 14
+
+Let $K/k$ be a finite abelian extension of global function fields with Galois group $G$. Given a character $\chi: G \to \mathbb{C}$, we define values of the character at primes of $k$ as follows:
+
+$$\chi(P) = \begin{cases} \chi((P, K/k)) &\text{if } P \text{ is unramified in } K \\ 0 &\text{if } P \text{ is ramified in } K \text{ and } \chi \text{ is ramified at } P\text{, i.e. } \chi(I(P)) \neq 1 \\ \chi((P, M/k)) &\text{if } P \text{ is ramified in } K \text{ and } \chi \text{ is unramified at } P, \text{ where } M = K^{I(P)} \end{cases} $$
+
+Here, $(P, K/k) \in G$ denotes the <b style="border-width:1px;border-style:solid;padding:3px" definition="">Artin automorphism</b>, which is defined when $P$ is unramified in $K$
+
+And then we define the <b style="border-width:1px;border-style:solid;padding:3px" definition="">Artin $L$-function of $\chi$</b> to be 
+
+$$L(s,\chi) = \prod_{P \text{ prime of } k} (1-\chi(P) NP^{-w})^{-1}.$$
+
+This has a functional equation. Also, $L(s, \chi)$ has an entire analytic continuation whenever $\chi \neq \chi_0$.
+
+It  turns out that 
+
+$$\zeta_K(s) = \zeta_k(s) \prod_{\chi \neq \chi_0} L(s,\chi).$$
+
+
 
 
 
